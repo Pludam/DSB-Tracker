@@ -1,4 +1,6 @@
 
+
+#timetable response parsing
 def parse_timetable_response(url_response:list)->dict:
     timetables = {}
     
