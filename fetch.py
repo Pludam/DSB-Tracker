@@ -1,5 +1,6 @@
 import requests
 import datetime
+from util import timeis
 from os import getenv
 
 #auth stuff
@@ -22,7 +23,7 @@ auth_params = {
 
 
 
-
+@timeis
 def get_auth_token()-> str:
     
 
