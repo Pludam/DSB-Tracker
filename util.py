@@ -1,5 +1,5 @@
 import time
-import pathlib
+
 
 def timeis(func): 
     '''Decorator that reports the execution time.'''
