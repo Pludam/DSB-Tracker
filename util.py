@@ -1,7 +1,7 @@
 import time
 
 
-def timeis(func): 
+def timeit(func): 
     '''Decorator that reports the execution time.'''
   
     def wrap(*args, **kwargs): 
@@ -13,3 +13,11 @@ def timeis(func):
         return result 
     return wrap 
 
+def format_line(func): 
+    '''Decorator that reports the execution time.'''
+  
+    def wrap(*args, **kwargs): 
+        result = func(*args, **kwargs) 
+        print("-------------------------------------------------") 
+        return result 
+    return wrap 

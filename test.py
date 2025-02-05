@@ -6,7 +6,8 @@ import requests
 load_dotenv()
 
 timetableresponse = parse_timetable_response(fetch_timetable_data(get_auth_token()))
-print(timetableresponse)
+
+
 
 
 
