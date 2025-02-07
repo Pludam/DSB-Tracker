@@ -14,3 +14,7 @@ timetableresponse = parse_timetable_response(fetch_timetable_data(get_auth_token
 
 
 parse_timetable_html(requests.get(timetableresponse["Schülerplan Heute - subst_001"]).text)
+""" with open("example_timetable.htm") as timetable:
+    #print(timetable.read())
+    parse_timetable_html(timetable.read())
+ """
