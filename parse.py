@@ -15,7 +15,11 @@ def parse_timetable_response(url_response: list) -> dict:
 def parse_timetable_html(html: str) -> dict:
     soup = BeautifulSoup(html, "lxml")
     curr_class = ""
-    i = 0
+    lesson_hour = ""
+    teacher = ""
+    sub_type = ""
+    room = ""
+    notes = ""
     for tag in soup.find("table", {"class": "mon_list"}).children:
         if tag  == "\n":
             continue # skip tag elements that are whitespaces 
@@ -24,6 +28,9 @@ def parse_timetable_html(html: str) -> dict:
         if tag.td.attrs["class"] == ["list","inline_header"]:
             curr_class = tag.td.b.string
             print(curr_class)
+            continue
+        for i,sub_tag in enumerate(tag.children): # class timetable structure: hour, teacher, type, lesson, room, possible notes
+            pass
             
 
         
