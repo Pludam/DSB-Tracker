@@ -16,13 +16,11 @@ def parse_timetable_html(html: str) -> dict:
     soup = BeautifulSoup(html, "lxml")
     curr_class = ""
     i = 0
-    for tag in soup.find("table", {"class": "mon_list"}).tbody.children:
-        if i == 0:
-            i += 1
-            continue # skip first element
+    for tag in soup.find("table", {"class": "mon_list"}).children:
         if tag  == "\n":
             continue # skip tag elements that are whitespaces 
-        
+        if tag.th: # skip elements with the tag th as a child because they contain labels
+            continue
         if tag.td.attrs["class"] == ["list","inline_header"]:
             curr_class = tag.td.b.string
             print(curr_class)
