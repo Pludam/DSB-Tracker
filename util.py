@@ -14,7 +14,7 @@ def timeit(func):
     return wrap 
 
 def format_line(func): 
-    '''Decorator that reports the execution time.'''
+    '''Decorator that prints an formatting line.'''
   
     def wrap(*args, **kwargs): 
         result = func(*args, **kwargs) 
