@@ -7,7 +7,7 @@ load_dotenv()
 
 timetableresponse = parse_timetable_response(fetch_timetable_data(get_auth_token()))
 
-local = True
+local = False
 
 
 
@@ -18,9 +18,12 @@ with open("timetable_response.html","w") as t:
 
 if local:
 #parse_timetable_html(requests.get(timetableresponse["Schülerplan Morgen - subst_001"]).text)
-    with open("example_timetable_browser.htm") as timetable:
+    with open("example_timetable.htm") as timetable:
         
         timetable_html = timetable.read()
-        parse_timetable_html(timetable_html)
+        timetable_data = parse_timetable_html(timetable_html)
 else:
-    parse_timetable_html(requests.get(timetableresponse["Schülerplan Morgen - subst_001"]).text)
+    timetable_data = parse_timetable_html(requests.get(timetableresponse["Schülerplan Morgen - subst_001"]).text)
+
+for v in timetable_data:
+    print(v,timetable_data[v])
