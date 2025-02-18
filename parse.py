@@ -55,6 +55,7 @@ def parse_timetable_html(html: str) -> dict:
                         sub_lesson = sub_tag.contents[1].replace("?", "")
                     else:
                         lesson = sub_tag.string
+                        sub_lesson = ""
                 case 4:# room
                     room = sub_tag.b.string.replace(u'\xa0', u'')
                 case 5:# note
